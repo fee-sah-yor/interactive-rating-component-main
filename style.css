@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --Orange: hsl(25, 97%, 53%);
+    --White: hsl(0, 0%, 100%);
+    --Light-Grey: hsl(217, 12%, 63%);
+    --Medium-Grey: hsl(216, 12%, 54%);
+    --dark-Medium-Grey: hsl(212, 15%, 24%);
+    --Dark-Blue: hsl(213, 24%, 15%);
+    --Very-Dark-Blue: hsl(216, 12%, 8%);
+}
+
+body {
+    font-size: 15px;
+    font-family: "overpass", sans-serif;
+    background-color: var(--Very-Dark-Blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    background-color: var(--Dark-Blue);
+    box-sizing: border-box;
+    width: 400px;
+    border-radius: 20px;
+    transition: 0.5s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.active{
+    transform: rotateY(180deg);
+}
+
+.container .front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: 1 / 1;
+    margin:2rem 2rem 1rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.container .front img {
+    background-color: var(--dark-Medium-Grey);
+    width: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.container .front h2 {
+    color: var(--White);
+    margin-bottom: 1rem;
+}
+
+.container .front p {
+    color: var(--Light-Grey);
+    margin-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+.container .front ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.container .front ul li button{
+    font-family: inherit;
+    padding:0.8rem 1rem 0.6rem;
+    background-color: var(--dark-Medium-Grey);
+    color:var(--Light-Grey);
+    border-radius: 50%;
+    margin-right:1.5rem;
+    font-size: 17px;
+}
+
+.container .front ul li button:hover{
+    background-color: var(--Orange);
+    color:var(--White);
+}
+
+.container .front ul li button:focus{
+    background-color: var(--Medium-Grey);
+    color:var(--White);
+}
+
+.container .front button{
+    font-family: inherit;
+    margin-top: 1rem;
+    color: var(--White);
+    background-color: var(--Orange);
+    border-color: transparent;
+    padding: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+.container .front button:hover,
+.container .back button:hover{
+    background-color: var(--White);
+    color:var(--Orange);
+}
+
+.container .back{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin:2rem 2rem ;
+    grid-area: 1 / 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.container .back img{
+    width:130px;
+}
+
+.container .back h5{
+    background-color:var(--dark-Medium-Grey);
+    color:var(--Orange);
+    font-weight:300;
+    padding:2px 3px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+.container .back h2{
+    color:var(--White);
+    margin-top:1.5rem;
+}
+
+.container .back p{
+    color:var(--Medium-Grey);
+    margin-top:0.6rem;
+}
+
+.container .back button{
+    font-family: inherit;
+    margin-top: 1rem;
+    color: var(--White);
+    background-color: var(--Orange);
+    border-color: transparent;
+    padding: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 20px;
+    cursor:pointer;
+    width:100%;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+   color:var(--White);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* ==============MEDIAQUERY============= */
+@media (max-width:425px) {
+    .container{
+        margin:1rem;
+        max-width:100%;
+        align-items: normal;
+    }
+}
+
+@media (max-width:375px){
+    .container{
+        margin:1rem auto;
+        width:100%;
+    }
+}
+
+@media (max-width:320px){
+    .container .front {
+        padding:1rem;
+        align-items: center;
+    }
+
+    .container .front ul li button{
+        margin-right:0.7rem;
+    }
+
+    .container .front button{
+       width:fit-content;
+       align-items: center;
+    }
+
+    .container .front p{
+        text-align:center;
+        align-items:center;
+        padding:0;
+    }
+
+    .container .back p{
+        text-align:center;
+        align-items: center;
+        padding:0 3rem;
+    }
+
+    .container .back button{
+        width:fit-content;
+    }
+}
